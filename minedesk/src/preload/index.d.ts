@@ -61,6 +61,10 @@ declare global {
         close: () => void
         hide: () => void
       }
+      crewai: {
+        getStatus: () => Promise<any>
+        generateReport: (request: any) => Promise<any>
+      }
     }
   }
 }

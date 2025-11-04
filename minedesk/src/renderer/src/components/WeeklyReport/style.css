@@ -1,0 +1,378 @@
+.weekly-report-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.primary-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  padding: 12px 24px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #f0f0ff;
+}
+
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  flex: 1;
+}
+
+.loading-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.loading-subtitle {
+  color: #666;
+  margin: 0 0 16px 0;
+  font-size: 14px;
+}
+
+.loading-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loading-steps li {
+  padding: 4px 0;
+  color: #444;
+  font-size: 13px;
+}
+
+/* Error State */
+.error-state {
+  padding: 32px;
+  background: #fff1f0;
+  border: 2px solid #ff4d4f;
+  border-radius: 12px;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.error-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff4d4f;
+  margin: 0 0 8px 0;
+}
+
+.error-message {
+  color: #666;
+  margin: 0 0 16px 0;
+  font-size: 14px;
+}
+
+.dismiss-button {
+  padding: 8px 20px;
+  background: white;
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dismiss-button:hover {
+  background: #fff1f0;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 64px 32px;
+  text-align: center;
+  background: #fafafa;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.empty-subtitle {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Report Container */
+.report-container {
+  margin: 24px 0;
+}
+
+.report-metadata {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.metadata-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.metadata-item .label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.metadata-item .value {
+  font-size: 13px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.download-button {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.2s;
+}
+
+.download-button:hover {
+  background: #5568d3;
+}
+
+.report-statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 20px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Markdown Content */
+.report-content {
+  padding: 32px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 24px 0 12px 0;
+}
+
+.markdown-body p {
+  margin: 0 0 16px 0;
+}
+
+.markdown-body ul, .markdown-body ol {
+  padding-left: 24px;
+  margin: 0 0 16px 0;
+}
+
+.markdown-body li {
+  margin: 8px 0;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.markdown-body th {
+  background: #f5f5f5;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+}
+
+.markdown-body td {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.markdown-body code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.markdown-body pre {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.markdown-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #666;
+  font-style: italic;
+}
+

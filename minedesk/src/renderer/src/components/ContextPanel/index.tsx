@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Clock, Monitor, Activity } from 'lucide-react'
+import { Clock, Monitor, Activity, FileText } from 'lucide-react'
 import { useCurrentContext } from '../../hooks/useCurrentContext'
 import { useActivitySummary } from '../../hooks/useActivitySummary'
+import { WeeklyReport } from '../WeeklyReport'
 
 export function ContextPanel() {
-  const [selectedTab, setSelectedTab] = useState<'current' | 'timeline' | 'summary'>('current')
+  const [selectedTab, setSelectedTab] = useState<'current' | 'timeline' | 'summary' | 'weekly'>('current')
 
   return (
     <div className="h-full flex flex-col">
@@ -36,6 +37,13 @@ export function ContextPanel() {
         >
           Summary
         </TabButton>
+        <TabButton
+          active={selectedTab === 'weekly'}
+          onClick={() => setSelectedTab('weekly')}
+          icon={<FileText className="w-4 h-4" />}
+        >
+          Weekly
+        </TabButton>
       </div>
 
       {/* Content */}
@@ -43,6 +51,7 @@ export function ContextPanel() {
         {selectedTab === 'current' && <CurrentContextView />}
         {selectedTab === 'timeline' && <TimelineView />}
         {selectedTab === 'summary' && <SummaryView />}
+        {selectedTab === 'weekly' && <WeeklyReport />}
       </div>
     </div>
   )

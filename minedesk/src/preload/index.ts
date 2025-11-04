@@ -57,6 +57,13 @@ const api = {
     maximize: () => ipcRenderer.send('window:maximize'),
     close: () => ipcRenderer.send('window:close'),
     hide: () => ipcRenderer.send('window:hide')
+  },
+
+  // CrewAI API
+  crewai: {
+    getStatus: () => ipcRenderer.invoke('crewai:get-status'),
+    generateReport: (request: any) =>
+      ipcRenderer.invoke('crewai:generate-report', request)
   }
 }
 

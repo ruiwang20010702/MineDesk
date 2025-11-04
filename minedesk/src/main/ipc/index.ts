@@ -2,6 +2,7 @@ import { ipcMain, BrowserWindow } from 'electron'
 import screenpipeService from '../services/ScreenpipeService'
 import minecontextService from '../services/MineContextService'
 import { databaseService } from '../services/DatabaseService'
+import crewaiService from '../services/CrewAIService'
 
 export function setupIpcHandlers() {
   // Screenpipe IPC handlers
@@ -214,6 +215,26 @@ export function setupIpcHandlers() {
   ipcMain.on('window:hide', (event) => {
     const window = BrowserWindow.fromWebContents(event.sender)
     window?.hide()
+  })
+
+  // CrewAI IPC handlers
+  ipcMain.handle('crewai:get-status', async () => {
+    try {
+      return await crewaiService.getStatus()
+    } catch (error: any) {
+      console.error('IPC crewai:get-status error:', error)
+      throw error
+    }
+  })
+
+  ipcMain.handle('crewai:generate-report', async (_event, request) => {
+    try {
+      console.log('🚀 Generating weekly report...', request)
+      return await crewaiService.generateReport(request)
+    } catch (error: any) {
+      console.error('IPC crewai:generate-report error:', error)
+      throw error
+    }
   })
 
   console.log('✅ IPC handlers registered')
